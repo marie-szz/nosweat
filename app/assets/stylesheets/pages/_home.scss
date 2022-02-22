@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('Header1.jpg');
+  height: 80vh;
+  width: 100vw;
+  object-fit: contain;
+  background-position: center;
+  padding: 150px, 0px;
+}
+
+.banner h1 {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  font-family: Roboto, sans-serif;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+  // structure de la page cf lecture https://kitt.lewagon.com/camps/800/lectures/04-Front-End%2F03-Bootstrap#source
+
+  .main-container {
+    display: flex;
+  }
+
+  #map {
+    height: 100vh;
+  }
+
+  .cards {
+    flex-grow: 1;
+  }
