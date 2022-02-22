@@ -1,7 +1,48 @@
 
+
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
 <div class="banner">
   <div class="container">
     <h1>No Sweat brings you all sports stuff to you</h1>
     <p>Don't waste your money, pay for what you use !</p>
   </div>
+
+<div class="search-bar">
+  <form class="row row-cols-lg-auto g-3 align-items-center">
+  <div class="col-12">
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Lieu</label>
+    <div class="input-group">
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Lieu" style="height: 49px";
+>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <label class="visually-hidden" for="inlineFormSelectPref">Date de début</label>
+    <select class="form-select" id="inlineFormSelectPref" style="height: 49px">
+      <option selected>Date de début</option>
+    </select>
+  </div>
+
+  <div class="col-12">
+    <label class="visually-hidden" for="inlineFormSelectPref">Date de début</label>
+    <select class="form-select" id="inlineFormSelectPref" style="height: 49px">
+      <option selected>Date de fin</option>
+    </select>
+  </div>
+
+  <form class="row row-cols-lg-auto g-3 align-items-center">
+  <div class="col-12">
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Sport</label>
+    <div class="input-group">
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Entrez votre sport favori" style="height: 49px">
+    </div>
+  </div>
+
+
+  <div class="col-12">
+    <button type="submit" class="btn-submit">Submit</button>
+  </div>
+</form>
 </div>
