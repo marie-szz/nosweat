@@ -2,7 +2,7 @@
 <p>Find me in app/views/products/show.html.erb</p>
 
 <%= simple_form_for [ @product, @booking ] do |f| %>
-  <%= f.input :checkin %>
-  <%= f.input :checkout %>
+  <%= f.input :check_in %>
+  <%= f.input :check_out %>
   <%= f.submit "Check availability", class: "btn btn-primary" %>
 <% end %>
