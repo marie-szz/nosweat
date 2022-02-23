@@ -5,7 +5,7 @@
   <%= f.input :description %>
   <%= f.input :location %>
   <%= f.input :quality %>
-  <%= f.input :photo_url, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :delivery %>
   <%= f.submit "Add a product", class: "btn btn-primary" %>
 <% end %>

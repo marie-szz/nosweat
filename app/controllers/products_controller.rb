@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @booking = Booking.new
     authorize @product
   end
 
@@ -17,7 +18,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.user_id = current_user.id
+    @product.user = current_user
     authorize @product
     if @product.save
       redirect_to products_path
@@ -29,7 +30,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:sport_category, :name, :price, :description, :location, :quality, :photo_url,
-                                    :delivery)
+    params.require(:product).permit(:sport_category, :name, :price, :description, :location, :quality, :delivery, photos: [])
   end
 end

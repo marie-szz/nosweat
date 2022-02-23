@@ -6,4 +6,10 @@
 
 .card {
   border-radius: 30px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 35vh;
 }
