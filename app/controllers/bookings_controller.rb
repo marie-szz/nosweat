@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to products_path
+      redirect_to products_path, notice: "Article sélectionné !"
     else
       render :new
     end
