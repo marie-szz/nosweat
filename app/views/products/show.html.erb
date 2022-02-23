@@ -1,20 +1,40 @@
 <%= render "shared/navbar" %>
 <div class="container container-down">
-  <h1>Products#show</h1>
-  <p>Find me in app/views/products/show.html.erb</p>
 
-  <%= @product.name %>
-  <% @product.photos.each do |photo| %>
-    <%= cl_image_tag(photo.key,
-    width: 400, height: 300, crop: :fill) %>
-  <% end %>
+   <div class="card-product-show d-flex" style="mb-5;">
+    <%= cl_image_tag(@product.photos.first.key,
+                    width: 567, height: 567, crop: :fill,
+                    class: "image") %>
+    <div class="card-product-show-mini">
+      <% @product.photos.each do |photo| %>
+        <% if @product.photos.index(photo) != 0 %>
+          <%= cl_image_tag(photo.key,
+          width: 280, height: 280, crop: :fill) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
-  <div class="container" style="width: 460px;">
-    <%= simple_form_for [ @product, @booking ] do |f| %>
-      <%= f.input :check_in %>
-      <%= f.input :check_out %>
-      <%= f.submit "Check availability", class: "btn btn-primary" %>
-    <% end %>
+  <div class="container">
+    <div class="card-product-info-schedule">
+      <div class="d-flex" style="justify-content: space-between; my-5">
+        <div class="card-product-info">
+          <h4><%= @product.name %></h4>
+          <br>
+          <h5><%= @product.description %></h5>
+          <br>
+          <h6><%= @product.price %>€ par jour</h6>
+          <h6><%= @product.quality %> état</h6>
+        </div>
+        <div class="mx-5" style="width: 460px">
+          <%= simple_form_for [ @product, @booking ] do |f| %>
+            <%= f.input :check_in %>
+            <%= f.input :check_out %>
+            <%= f.submit "Check availability", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
