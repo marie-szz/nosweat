@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to products_path, notice: "Article sélectionné !"
+      redirect_to product_path(@product), notice: "Demande de réservation envoyée !"
     else
       render :new
     end

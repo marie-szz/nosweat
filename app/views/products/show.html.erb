@@ -1,6 +1,7 @@
 <%= render "shared/navbar" %>
 <div class="container container-down">
 
+
    <div class="card-product-show d-flex" style="mb-5;">
     <%= cl_image_tag(@product.photos.first.key,
                     width: 567, height: 567, crop: :fill,
@@ -36,12 +37,25 @@
       </div>
     </div>
   </div>
+  
+  <% if @bookings.empty? %>
+    <div class="container" style="width: 460px;">
+      <%= simple_form_for [ @product, @booking ] do |f| %>
+        <%= f.input :check_in %>
+        <%= f.input :check_out %>
+        <%= f.submit "Réserver", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Votre réservation a bien été prise en compte !</p>
+  <% end %>
+
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Vérifier la disponibilité
-</button>
+<%# <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Réserver
+</button> %>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
