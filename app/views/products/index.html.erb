@@ -1,19 +1,20 @@
 <%= render "shared/navbar" %>
 
-<div class="container my-5">
+<div class="container container-down">
 
-<ul>
+<div class="cards">
   <% @products.each do |product| %>
-    <li>
-      <%= link_to product.name, product_path(product) %>
-      <%# product.photos.each do |photo| %>
-        <%= cl_image_tag(product.photos.first.key,
-        width: 400, height: 300, crop: :fill) %>
-      <%# end %>
-    </li>
+    <div class="card-product">
+      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+      <%= cl_image_tag(product.photos.first.key, class: "image") %>
+      <div class="card-product-infos">
+        <h2><%= link_to product.name, product_path(product) %></h2>
+        <p><%= product.description %></p>
+        <h2 class="price"><%= product.price %> €</h2>
+      </div>
+    </div>
   <% end %>
-
-</ul>
+</div>
 
   <% if policy(Product).create? %>
     <%= link_to "Add a product", new_product_path %>
