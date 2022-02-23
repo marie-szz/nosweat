@@ -1,8 +1,18 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="container">
+  <h1>Products#show</h1>
+  <p>Find me in app/views/products/show.html.erb</p>
 
-<%= simple_form_for [ @product, @booking ] do |f| %>
-  <%= f.input :check_in %>
-  <%= f.input :check_out %>
-  <%= f.submit "Check availability", class: "btn btn-primary" %>
-<% end %>
+  <%= @product.name %>
+  <% @product.photos.each do |photo| %>
+    <%= cl_image_tag(photo.key,
+    width: 400, height: 300, crop: :fill) %>
+  <% end %>
+
+  <div class="container" style="width: 460px;">
+    <%= simple_form_for [ @product, @booking ] do |f| %>
+      <%= f.input :check_in %>
+      <%= f.input :check_out %>
+      <%= f.submit "Check availability", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
