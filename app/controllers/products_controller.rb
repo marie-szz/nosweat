@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @booking = Booking.new
+    @bookings = Booking.where(user: current_user, product: @product)
     authorize @product
   end
 
