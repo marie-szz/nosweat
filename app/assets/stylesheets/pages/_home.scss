@@ -1,29 +1,38 @@
 // Specific CSS for your home-page
-.banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('Header1.jpg');
+
+// background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('Header1.jpg');
+
+.w-100 {
+  width: 100% !important;
   height: 80vh;
-  width: 100vw;
-  object-fit: contain;
-  background-position: center;
-  padding: 150px, 0px;
 }
 
-.banner h1 {
-  margin: 0;
-  font-family: Roboto, sans-serif;
+.main-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-carousel {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))
+}
+
+.text-carousel {
+  position:absolute;
+}
+
+.text-carousel h1 {
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  text-shadow: #000 1px 0 9px;
 }
 
-.banner p {
+.text-carousel p {
+  color: white;
   font-size: 20px;
-  font-family: Roboto, sans-serif;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: #000 1px 0 9px;
 }
+
 
   // structure de la page cf lecture https://kitt.lewagon.com/camps/800/lectures/04-Front-End%2F03-Bootstrap#source
 
@@ -37,4 +46,9 @@
 
   .cards {
     flex-grow: 1;
+  }
+
+  .container-down {
+    margin-top: 8rem;
+    margin-bottom: 4rem;
   }

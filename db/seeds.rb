@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 Product.destroy_all
+Booking.destroy_all
 
 new_user = {
   first_name: "Stephen",
