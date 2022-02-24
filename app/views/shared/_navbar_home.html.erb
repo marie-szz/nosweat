@@ -1,6 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
-    <%= link_to "No Sweat", root_path, class: "navbar-brand" %>
+    <%= link_to root_path, class:"navbar-brand" do %>
+      <%= image_tag "LogoText.png" %>
+    <%end%>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,6 +15,9 @@
             <%= image_tag "http://cdn.onlinewebfonts.com/svg/img_550781.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <% if policy(Product).create? %>
+                <%= link_to "Ajouter un produit", new_product_path, class: "dropdown-item" %>
+              <% end %>
             </div>
           </li>
         <% else %>
