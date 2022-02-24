@@ -2,12 +2,20 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+
     if params[:size].present? && !params[:size].nil?
       @products = policy_scope(Product).search_by_size(params[:size])
     elsif params[:location].present?
       @products = policy_scope(Product).search_by_location(params[:user][:location])
     else
       @products = policy_scope(Product)
+    end
+    
+    @markers = @products.map do |product|
+      {
+        lat: product.user.latitude,
+        lng: product.user.longitude
+      }
     end
   end
 

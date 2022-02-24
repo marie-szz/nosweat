@@ -1,6 +1,7 @@
 <%= render "shared/navbar" %>
 
 <div class="container container-down">
+
   <div class="justify-content-end mb-5" >
     <%= form_tag products_path, method: :get do %>
     <div class="d-flex my-5" style="height: 50px; width: 1200px;">
@@ -28,29 +29,45 @@
         <%= submit_tag "Rechercher", class: "btn btn-primary" %>
       <% end %>
 
-        <% if policy(Product).create? %>
-          <%= link_to "Ajouter un produit", new_product_path, class: "btn btn-primary" %>
-        <% end %>
-
   </div>
 
-  <div class="cards">
+
+  <div class="d-flex">
+    <div class="cards">
     <% @products.each do |product| %>
       <%= link_to product_path(product) do  %>
-        <div class="card-product">
+      <div class="card-product">
           <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
           <%= cl_image_tag(product.photos.first.key, class: "image") %>
-          <div class="card-product-infos">
+        <div class="card-product-infos">
           <% if product.user.photo_url %>
-            <%= image_tag asset_path(product.user.photo_url) %>
+            <%= image_tag asset_path(product.user.photo_url), class:"avatar", alt: "avatar" %>
           <% end %>
+          <div class="text">
             <h2><%= product.name %></h2>
             <p><%= product.description %></p>
-            <h2 class="price"><%= product.price %> €</h2>
+          </div>
+          <div class="main-btn">
+            <div class="btn btn-primary">
+                <%= product.quality %>
+            </div>
+            <div class="btn btn-primary">
+              <%= product.size %>
+            </div>
+            <div class="btn btn-primary">
+              <%= product.price %> €/jour
+            </div>
           </div>
         </div>
+      </div>
       <% end %>
     <% end %>
   </div>
-
+</div>
+    <div id="map"
+        style="margin-left: 10px;width:100%; height:100vh"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_APY_KEY'] %>"></div>
+  </div>
 </div>
