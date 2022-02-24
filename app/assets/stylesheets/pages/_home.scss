@@ -18,20 +18,26 @@
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))
 }
 
+.gradient-img {
+  mask-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+}
+
+
 .text-carousel {
   position:absolute;
 }
 
 .text-carousel h1 {
   color: white;
-  text-shadow: #000 1px 0 9px;
+  text-shadow: #000 1px 0 5px;
 }
 
 .text-carousel p {
   color: white;
   font-size: 20px;
-  text-shadow: #000 1px 0 9px;
+  text-shadow: #000 1px 0 5px;
 }
+
 
 
   // structure de la page cf lecture https://kitt.lewagon.com/camps/800/lectures/04-Front-End%2F03-Bootstrap#source
@@ -44,9 +50,9 @@
     height: 100vh;
   }
 
-  .cards {
-    flex-grow: 1;
-  }
+  // .cards {
+  //   flex-grow: 1;
+  // }
 
   .container-down {
     margin-top: 8rem;

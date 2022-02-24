@@ -18,11 +18,12 @@
       <div class="card-product-info-schedule">
         <div class="d-flex" style="justify-content: space-between; my-5">
           <div class="card-product-info">
-              <h4><%= @product.name %></h4>
-                <p>proposé par <%=@product.user.first_name %></p>
-              <div class="d-flex">
-                <div class="avatar">
-                </div>
+            <% if @product.user.photo_url %>
+              <%= image_tag asset_path(@product.user.photo_url) %>
+            <% end %>
+            <h4><%= @product.name %></h4>
+              <p>proposé par <%=@product.user.first_name %></p>
+            <div class="d-flex">
             </div>
             <br>
             <h5><%= @product.description %></h5>
@@ -92,3 +93,4 @@
     </div>
   </div>
 </div>
+
