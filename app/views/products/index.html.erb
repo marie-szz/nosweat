@@ -2,6 +2,36 @@
 
 <div class="container container-down">
 
+  <div class="justify-content-end mb-5" >
+    <%= form_tag products_path, method: :get do %>
+    <div class="d-flex my-5" style="height: 50px; width: 1200px;">
+      <select name="size" class="form-control">
+        <option value="" disabled selected hidden>Etat</option>
+        <option value="Moyen">Moyen</option>
+        <option value="Bon">Bon</option>
+        <option value="Excellent">Excellent</option>
+      </select>
+      <select name="size" class="form-control">
+        <option value="" disabled selected hidden>Taille</option>
+        <option value="M">M</option>
+        <option value="S">S</option>
+        <option value="L">L</option>
+        <option value="XS">XS</option>
+      </select>
+      <%= form_tag products_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Adresse"
+          %>
+      <% end %>
+
+        <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+      <% end %>
+
+  </div>
+
+
   <div class="d-flex">
     <div class="cards">
     <% @products.each do |product| %>

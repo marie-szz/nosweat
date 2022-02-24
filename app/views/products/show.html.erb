@@ -58,7 +58,7 @@
         ...
       </div>
       <div class="modal-footer">
-        <%= link_to "Réserver", product_bookings_path(@product, params: { booking: { user_id: current_user.id, product_id: @product.id, statut: "pending"}}), class: "btn btn-primary", method: :post %>
+        <%= link_to "Réserver", product_bookings_path(@product, params: { booking: { user_id: @product.user_id, product_id: @product.id, status: "pending"}}), class: "btn btn-primary", method: :post %>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
       </div>
     </div>
@@ -93,4 +93,3 @@
     </div>
   </div>
 </div>
-
