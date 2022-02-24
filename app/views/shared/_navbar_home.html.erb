@@ -18,6 +18,9 @@
               <% if policy(Product).create? %>
                 <%= link_to "Ajouter un produit", new_product_path, class: "dropdown-item" %>
               <% end %>
+              <% if policy(Product).show? %>
+                <%= link_to "Mon dashboard", dashboard_path, class: "dropdown-item" %>
+              <% end %>
             </div>
           </li>
         <% else %>
