@@ -113,7 +113,7 @@ products_index_simple = [
     name: "Casque",
     price: 5,
     description: "Ce casque à visière propose une protection optimale de la tête et des yeux de votre enfant.",
-    quality: "Très bon état",
+    quality: "Très bon",
     photos_url: [
       "https://contents.mediadecathlon.com/p2099808/k$7fcf9de6fd798ecaf7359237248b42bd/sq/casque-de-ski-enfant-h-kid-550-rouge.jpg?format=auto&f=646x646"
     ],
@@ -191,7 +191,7 @@ products_index_simple = [
     name: "Veste",
     price: 7,
     description: "Veste de Ski/Snow Volcom L Insulated Gore-Tex Jaune Homme.",
-    quality: "Très Bon",
+    quality: "Très bon",
     photos_url: [
       "https://contents.mediadecathlon.com/m4138339/k$62bbbc60b4c3cf8e223d806ddea97e2c/sq/veste-d"
     ],
@@ -249,7 +249,7 @@ products_index_kid = [
     price: 3,
     description: "Cette veste de ski est imperméable, chaude et équipée d'une capuche. Elle est idéale pour apprendre le ski dans les meilleures conditions.",
     location: "Chamonix",
-    quality: "Très bon état",
+    quality: "Très bon",
     photos_url: [
       "https://contents.mediadecathlon.com/p1725769/k$53da5ff2483ba9511132f35824f82f14/sq/veste-d"
     ],
@@ -333,7 +333,7 @@ products_index_kid = [
     price: 4,
     description: "Ce pantalon de ski est imperméable, chaud et équipé de bretelles réglables et amovibles. Il est idéal pour apprendre le ski dans les meilleures conditions.",
     location: "Chamonix",
-    quality: "Très Bon",
+    quality: "Très bon",
     photos_url: [
       "https://contents.mediadecathlon.com/p2035861/k$f0d0a92e50064c2d1f4d473fc6627bb2/sq/pantalo"
     ],
