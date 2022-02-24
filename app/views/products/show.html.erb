@@ -2,6 +2,8 @@
 <div class="container container-down">
 
 
+
+
    <div class="card-product-show d-flex" style="mb-5;">
     <%= cl_image_tag(@product.photos.first.key,
                     width: 567, height: 567, crop: :fill,
@@ -20,6 +22,9 @@
     <div class="card-product-info-schedule">
       <div class="d-flex" style="justify-content: space-between; my-5">
         <div class="card-product-info">
+          <% if @product.user.photo_url %>
+            <%= image_tag asset_path(@product.user.photo_url) %>
+          <% end %>
           <h4><%= @product.name %></h4>
           <br>
           <h5><%= @product.description %></h5>
