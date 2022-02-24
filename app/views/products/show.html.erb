@@ -43,6 +43,19 @@
       </div>
     </div>
   </div>
+  <div>
+    <h2>Les autres produits proposés par <%= @product.user.first_name %></p>
+    <div class="cards d-flex">
+      <% @product.user.products.each do |product|%>
+        <div class="card-product">
+          <div>
+            <p><%= product.name %></p>
+          </div>
+          <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
