@@ -27,28 +27,20 @@
           <h6><%= @product.price %>€ par jour</h6>
           <h6><%= @product.quality %> état</h6>
         </div>
-        <div class="mx-5" style="width: 460px">
-          <%= simple_form_for [ @product, @booking ] do |f| %>
-            <%= f.input :check_in %>
-            <%= f.input :check_out %>
-            <%= f.submit "Check availability", class: "btn btn-primary" %>
-          <% end %>
-        </div>
+        <% if @bookings.empty? %>
+          <div class="container" style="width: 460px;">
+            <%= simple_form_for [ @product, @booking ] do |f| %>
+              <%= f.input :check_in %>
+              <%= f.input :check_out %>
+              <%= f.submit "Réserver", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        <% else %>
+          <p>Votre réservation a bien été prise en compte !</p>
+        <% end %>
       </div>
     </div>
   </div>
-
-  <% if @bookings.empty? %>
-    <div class="container" style="width: 460px;">
-      <%= simple_form_for [ @product, @booking ] do |f| %>
-        <%= f.input :check_in %>
-        <%= f.input :check_out %>
-        <%= f.submit "Réserver", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  <% else %>
-    <p>Votre réservation a bien été prise en compte !</p>
-  <% end %>
 
 </div>
 
