@@ -59,6 +59,8 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
+
+
 .card-product-info {
   max-width: 600px;
   h4 {
@@ -71,4 +73,9 @@
 
 .card-product-info-schedule {
   margin-top: 45px;
+}
+
+.card-product-info .avatar {
+  width: 60px;
+  border-radius: 50%;
 }
