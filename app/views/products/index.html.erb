@@ -34,40 +34,40 @@
 
   <div class="d-flex">
     <div class="cards">
-    <% @products.each do |product| %>
-      <%= link_to product_path(product) do  %>
-      <div class="card-product">
-          <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-          <%= cl_image_tag(product.photos.first.key, class: "image") %>
-        <div class="card-product-infos">
-          <% if product.user.photo_url %>
-            <%= image_tag asset_path(product.user.photo_url), class:"avatar", alt: "avatar" %>
-          <% end %>
-          <div class="text">
-            <h2><%= product.name %></h2>
-            <p><%= product.description %></p>
-          </div>
-          <div class="main-btn">
-            <div class="btn btn-primary">
-                <%= product.quality %>
+      <% @products.each do |product| %>
+        <%= link_to product_path(product) do  %>
+        <div class="card-product">
+            <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+            <%= cl_image_tag(product.photos.first.key, class: "image") %>
+          <div class="card-product-infos">
+            <% if product.user.photo_url %>
+              <%= image_tag asset_path(product.user.photo_url), class:"avatar", alt: "avatar" %>
+            <% end %>
+            <div class="text">
+              <h2><%= product.name %></h2>
+              <p><%= product.description %></p>
             </div>
-            <div class="btn btn-primary">
-              <%= product.size %>
-            </div>
-            <div class="btn btn-primary">
-              <%= product.price %> €/jour
+            <div class="main-btn">
+              <div class="btn btn-primary">
+                  <%= product.quality %>
+              </div>
+              <div class="btn btn-primary">
+                <%= product.size %>
+              </div>
+              <div class="btn btn-primary">
+                <%= product.price %> €/jour
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-</div>
+    </div>
     <div id="map"
         style="margin-left: 10px;width:100%; height:100vh"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_APY_KEY'] %>"></div>
   </div>
+
 </div>
