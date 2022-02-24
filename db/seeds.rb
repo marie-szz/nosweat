@@ -25,7 +25,7 @@ users_h = [
     email: "matthieu@gmail.com",
     password: "matthieu",
     location: "Chamonix",
-    photo_url: "matthieu.jpeg"
+    photo_url: "matthieu.jpg"
   },
   {
     first_name: "Frederic",
@@ -33,7 +33,7 @@ users_h = [
     email: "fred@gmail.com",
     password: "frederic",
     location: "Paris",
-    photo_url: "fred.jpeg"
+    photo_url: "fred.jpg"
   },
   {
     first_name: "Maxime",
@@ -41,7 +41,7 @@ users_h = [
     email: "maxime@gmail.com",
     password: "maxime",
     location: "Lyon",
-    photo_url: "maxime.jpeg"
+    photo_url: "maxime.jpg"
   },
   {
     first_name: "Maxime",
@@ -65,7 +65,7 @@ users_h = [
     email: "vincent@gmail.com",
     password: "vincent",
     location: "Rennes",
-    photo_url: "vincent.jpeg"
+    photo_url: "vincent.jpg"
   },
   {
     first_name: "Victor",
@@ -81,7 +81,7 @@ users_h = [
     email: "diane@gmail.com",
     password: "johnson",
     location: "Chamonix",
-    photo_url: "diane.jpeg"
+    photo_url: "diane.jpg"
   },
   {
     first_name: "Paul",
@@ -89,7 +89,7 @@ users_h = [
     email: "paul@gmail.com",
     password: "lahana",
     location: "Chamonix",
-    photo_url: "paul.jpeg"
+    photo_url: "paul.jpg"
   }
 ]
 
