@@ -10,20 +10,31 @@
   <div class="cards">
     <% @products.each do |product| %>
       <%= link_to product_path(product) do  %>
-        <div class="card-product">
+      <div class="card-product">
           <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
           <%= cl_image_tag(product.photos.first.key, class: "image") %>
-          <div class="card-product-infos">
+        <div class="card-product-infos">
           <% if product.user.photo_url %>
-            <%= image_tag asset_path(product.user.photo_url) %>
+            <%= image_tag asset_path(product.user.photo_url), class:"avatar", alt: "avatar" %>
           <% end %>
-            <h2><%= product.name %></h2>
-            <p><%= product.description %></p>
-            <h2 class="price"><%= product.price %> €</h2>
-          </div>
+            <div class="text">
+              <h2><%= product.name %></h2>
+              <p><%= product.description %></p>
+            </div>
+            <div class="main-btn">
+              <div class="btn btn-primary">
+                  <%= product.quality %>
+              </div>
+              <div class="btn btn-primary">
+                <%= product.size %>
+              </div>
+              <div class="btn btn-primary">
+                <%= product.price %> €/jour
+              </div>
         </div>
+  </div>
+    </div>
       <% end %>
     <% end %>
   </div>
-
 </div>
