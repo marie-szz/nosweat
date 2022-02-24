@@ -1,67 +1,94 @@
 <%= render "shared/navbar" %>
 <div class="container container-down">
-
-
-   <div class="card-product-show d-flex" style="mb-5;">
-    <%= cl_image_tag(@product.photos.first.key,
-                    width: 567, height: 567, crop: :fill,
-                    class: "image") %>
-    <div class="card-product-show-mini">
-      <% @product.photos.each do |photo| %>
+  <div class="card-product-show d-flex">
+    <div>
+    <% @product.photos.each do |photo| %>
+      <div class="card-product-show-mini">
         <% if @product.photos.index(photo) != 0 %>
           <%= cl_image_tag(photo.key,
-          width: 280, height: 280, crop: :fill) %>
+          width: 100, height: 100, crop: :fill) %>
         <% end %>
+      </div>
       <% end %>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="card-product-info-schedule">
-      <div class="d-flex" style="justify-content: space-between; my-5">
-        <div class="card-product-info">
-          <h4><%= @product.name %></h4>
-          <br>
-          <h5><%= @product.description %></h5>
-          <br>
-          <h6><%= @product.price %>€ par jour</h6>
-          <h6><%= @product.quality %> état</h6>
-        </div>
-        <% if @bookings.empty? %>
-          <div class="container" style="width: 460px;">
-            <%= simple_form_for [ @product, @booking ] do |f| %>
-              <%= f.input :check_in %>
-              <%= f.input :check_out %>
-              <%= f.submit "Réserver", class: "btn btn-primary" %>
-            <% end %>
+    <div class="card-product-show" style="mb-5;">
+        <%= cl_image_tag(@product.photos.first.key, width: 405, height: 405, crop: :fill, class: "image") %>
+    </div>
+    <div class="container">
+      <div class="card-product-info-schedule">
+        <div class="d-flex" style="justify-content: space-between; my-5">
+          <div class="card-product-info">
+              <h4><%= @product.name %></h4>
+                <p>proposé par <%=@product.user.first_name %></p>
+              <div class="d-flex">
+                <div class="avatar">
+                </div>
+            </div>
+            <br>
+            <h5><%= @product.description %></h5>
+            <br>
+            <h6><%= @product.price %>€ par jour</h6>
+            <h6><%= @product.quality %> état</h6>
+            <div class="container">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Réserver
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal" data-bs-whatever="@mdo">
+                Contacter <%= @product.user.first_name %>
+              </button>
+            </div>
           </div>
-        <% else %>
-          <p>Votre réservation a bien été prise en compte !</p>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
 
-<!-- Button trigger modal -->
-<%# <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Réserver
-</button> %>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+<!-- Modal pour reserver  -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h5 class="modal-title" id="exampleModalLabel">Demande de réservation prise en comtpe</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= link_to "Réserver", product_bookings_path(@product, params: { booking: { user_id: current_user.id, product_id: @product.id, statut: "pending"}}), class: "btn btn-primary", method: :post %>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- Modal pour contacter  -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="messageModalLabel">Nouveau message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Motif :</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message :</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Envoyez votre message</button>
+      </div>
+    </div>
+  </div>
+</div>
