@@ -5,7 +5,7 @@
 #map {
   position: sticky;
   top: 0;
-  height: calc(100vh - 8rem)
+  height: calc(100vh - 8rem);
 }
 
 .cards {
@@ -21,6 +21,7 @@
 }
 
 .card-product {
+  display: flex;
   overflow: hidden;
   height: 200px;
   max-width: 500px;
