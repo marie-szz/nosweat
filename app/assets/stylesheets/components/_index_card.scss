@@ -22,25 +22,25 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 200px;
+  max-width: 500px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
   position: relative;
   border-radius: 4px;
-  max-width: 500px;
 }
-
 .card-product {
   .image {
     height: 100%;
-    width: 120px;
+    width: 180px;
     object-fit: cover;
+    padding: 8px;
   }
 }
 
 .card-product:hover {
-  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 15px 0 rgba(33, 158, 188, 0.3);
   opacity: 1;
 }
 
@@ -56,7 +56,10 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  text-align: justify;
+  padding-right: 72px;
 }
+
 
 .card-product .card-product-infos {
   padding: 16px;
@@ -64,12 +67,47 @@
 }
 
 .card-product .card-product-infos .price {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.4;
+  opacity: .7;
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   right: 15px;
 }
 
 .card-product .card-product-infos a {
   text-decoration: none;
   color: #000;
+}
+
+.btn-primary {
+background-color: lightgray;
+border: none;
+}
+
+.main-btn {
+  position: absolute;
+  bottom: 8px;
+}
+
+.card-product .avatar {
+  width: 50px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-gap: 2rem;
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
 }
