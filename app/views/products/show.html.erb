@@ -56,16 +56,18 @@
         <% if product != @product %>
           <div class="card-product">
             <%= link_to product_path(product), class:"card-text" do  %>
-            <div>
-              <p><%= product.name %></p>
-            </div>
-            <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
+              <div>
+                <p><%= product.name %></p>
+              </div>
+              <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
+
+              <div class=price-show>
+                <p><%= @product.price %>€ /jour</p>
+              </div>
             <% end %>
-            <div class=price-show>
-              <p><%= @product.price %>€ /jour</p>
-            </div>
           </div>
         <% end %>
+      <% end %>
     </div>
   </div>
 </div>
