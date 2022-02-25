@@ -8,6 +8,11 @@ class Product < ApplicationRecord
   pg_search_scope :search_by_size,
     against: [ :size ]
 
+  pg_search_scope :search_by_quality,
+    against: [ :quality ]
+
   pg_search_scope :search_by_location,
-    against: [ :location ]
+    associated_against: {
+      user: [:location]
+    }
 end

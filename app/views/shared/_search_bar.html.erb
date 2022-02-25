@@ -28,7 +28,9 @@
         </div>
 
         <div class="col-12">
-          <button type="submit" class="btn-submit">Rechercher</button>
+          <%= link_to products_path do %>
+            <button type="submit" class="btn-submit">Rechercher</button>
+          <% end %>
         </div>
       </form>
    </div>
