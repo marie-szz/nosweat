@@ -3,14 +3,18 @@ class ProductsController < ApplicationController
 
   def index
 
-    if params[:size].present? && !params[:size].nil?
+    if params[:size].present? && params[:location].present? && params[:quality].present?
+      @products = policy_scope(Product).search_by_size(params[:size]).search_by_location(params[:location]).search_by_quality(params[:quality])
+    elsif params[:quality].present?
+      @products = policy_scope(Product).search_by_quality(params[:quality])
+    elsif params[:size].present?
       @products = policy_scope(Product).search_by_size(params[:size])
     elsif params[:location].present?
-      @products = policy_scope(Product).search_by_location(params[:user][:location])
+      @products = policy_scope(Product).search_by_location(params[:location])
     else
       @products = policy_scope(Product)
     end
-    
+
     @markers = @products.map do |product|
       {
         lat: product.user.latitude,
