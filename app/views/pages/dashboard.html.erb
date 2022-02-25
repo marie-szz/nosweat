@@ -22,7 +22,7 @@
 </ul>
 
 <div class="tab-info tab-active" id = "tab-1-infos">
-  <h2>Mes demandes de résa</h2>
+  <h3>Mes demandes de réservation</h3>
   <% @my_bookings.each do |booking| %>
         <%= link_to product_path(booking.product) do  %>
         <div class="card-product">
@@ -34,7 +34,7 @@
 </div>
 
 <div class="tab-info" id = "tab-2-infos">
-  <h2>Mes offres </h2>
+  <h3>Mes offres </h3>
   <% @my_products.each do |product| %>
         <%= link_to product_path(product) do  %>
         <% product.bookings.each do |demand| %>
@@ -48,7 +48,7 @@
 </div>
 
 <div class="tab-info" id = "tab-3-infos">
-  <h2>Mes produits</h2>
+  <h3>Mes produits</h3>
   <% @my_products.each do |product| %>
         <%= link_to product_path(product) do  %>
         <div class="card-product">
