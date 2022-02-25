@@ -70,9 +70,10 @@
       <div class="modal-body">
         Dates : 23/03/2022 au 30/03/2022
         <br>
-        À : Maxime
+        À : <%= @product.user.first_name %>
         <br>
-        Maxime a reçu un email avec votre demande de réservation.
+        <br>
+        Confirmer votre demande de réservation et <%= @product.user.first_name %> vous recontactera.
         <br>
         Vous retrouverez le statut de votre demande dans votre Tableau de bord.
       </div>
