@@ -1,5 +1,3 @@
-
-
 <%= render "shared/navbar" %>
 <div id="top-show"></div>
 <div class="container container-down" >
@@ -33,7 +31,8 @@
             <p><%= @product.description %></p>
             <br>
             <h6><%= @product.price %>€ /jour</h6>
-            <h6>Etat: <%= @product.quality %></h6>
+            <h6>Taille :<%= @product.size %></h6>
+            <h6>Etat : <%= @product.quality %></h6>
             <div class="user-choice">
                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Réserver
