@@ -15,4 +15,6 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 import { tabMenu } from "../plugins/dashboard"
-tabMenu()
+  if (document.querySelector(".tab-active")) {
+    tabMenu();
+  }
