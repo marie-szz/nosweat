@@ -15,6 +15,6 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 import { tabMenu } from "../plugins/dashboard"
-document.addEventListener("turbolinks:load", () => {
-  tabMenu();
-})
+  if (document.querySelector(".tab-active")) {
+    tabMenu();
+  }
