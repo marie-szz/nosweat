@@ -1,7 +1,8 @@
 
 
 <%= render "shared/navbar" %>
-<div class="container container-down">
+<div id="top-show"></div>
+<div class="container container-down" >
   <div class="card-product-show d-flex">
     <div>
     <% @product.photos.each do |photo| %>
@@ -49,21 +50,26 @@
   <div class="container">
     <div class="other-text">
          <h2>Les autres produits proposés par <%= @product.user.first_name %></p>
-    </div>
+  </div>
     <div class="cards d-flex">
       <% @product.user.products.each do |product| %>
-      <% if product != @product %>
+        <% if product != @product %>
           <div class="card-product">
+            <%= link_to product_path(product), class:"card-text" do  %>
             <div>
               <p><%= product.name %></p>
-          </div>
+            </div>
             <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
+            <% end %>
+            <div class=price-show>
+              <p><%= @product.price %>€ /jour</p>
+            </div>
           </div>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>
+
 
 
 <!-- Modal pour reserver  -->
@@ -86,7 +92,7 @@
       </div>
       <div class="modal-footer">
         <%= link_to "Réserver", product_bookings_path(@product, params: { booking: { user_id: @product.user_id, product_id: @product.id, status: "En attente"}}), class: "btn btn-primary", method: :post %>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
       </div>
     </div>
   </div>
