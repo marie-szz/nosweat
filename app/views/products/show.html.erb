@@ -3,6 +3,7 @@
 <%= render "shared/navbar" %>
 <div id="top-show"></div>
 <div class="container container-down" >
+ <%= link_to "< Retour", products_path, class: "btn btn-primary mb-3"%>
   <div class="card-product-show d-flex">
     <div>
     <% @product.photos.each do |photo| %>
