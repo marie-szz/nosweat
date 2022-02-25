@@ -121,7 +121,7 @@ padding-bottom: 15px;
 
 .card-product .card-text p {
   font-size: 19px;
-  font-weight: bold;
+  font-weight: bolder;
   margin-top: 18px;
 
 }
@@ -131,7 +131,12 @@ padding-bottom: 15px;
   border: none;
   }
 
-  .main-btn-show {
+.main-btn-show {
     position: absolute;
     bottom: 8px;
   }
+
+.card-product .price-show p {
+margin-top: 45px;
+font-weight: bold;
+}
