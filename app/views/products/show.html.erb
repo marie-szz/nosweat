@@ -59,6 +59,9 @@
         </div>
           <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
           <% end %>
+         <div class=price-show>
+        <p><%= @product.price %>€ /jour</p>
+        </div>
         </div>
       <% end %>
     </div>
