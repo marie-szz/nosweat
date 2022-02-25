@@ -1,7 +1,8 @@
 
 
 <%= render "shared/navbar" %>
-<div class="container container-down">
+<div id="top-show"></div>
+<div class="container container-down" >
   <div class="card-product-show d-flex">
     <div>
     <% @product.photos.each do |photo| %>
@@ -84,7 +85,7 @@
       </div>
       <div class="modal-footer">
         <%= link_to "Réserver", product_bookings_path(@product, params: { booking: { user_id: @product.user_id, product_id: @product.id, status: "En attente"}}), class: "btn btn-primary", method: :post %>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
       </div>
     </div>
   </div>
