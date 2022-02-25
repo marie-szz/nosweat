@@ -50,21 +50,22 @@
   <div class="container">
     <div class="other-text">
          <h2>Les autres produits proposés par <%= @product.user.first_name %></p>
-    </div>
+  </div>
     <div class="cards d-flex">
-      <% @product.user.products.each do |product|%>
-        <div class="card-product">
-          <%= link_to product_path(product), class:"card-text" do  %>
-          <div>
-            <p><%= product.name %></p>
-        </div>
-          <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
-          <% end %>
-         <div class=price-show>
-        <p><%= @product.price %>€ /jour</p>
-        </div>
-        </div>
-      <% end %>
+      <% @product.user.products.each do |product| %>
+        <% if product != @product %>
+          <div class="card-product">
+            <%= link_to product_path(product), class:"card-text" do  %>
+            <div>
+              <p><%= product.name %></p>
+            </div>
+            <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
+            <% end %>
+            <div class=price-show>
+              <p><%= @product.price %>€ /jour</p>
+            </div>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
