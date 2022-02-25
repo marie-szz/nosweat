@@ -99,8 +99,13 @@ users = users_h.map do |user|
   u
 end
 
+stephen = users[0]
 matthieu = users[1]
+fred = users[2]
 maxime = users[3]
+max = users[4]
+marie = users[5]
+vincent = users[6]
 victor = users[7]
 diane = users[8]
 paul = users[9]
@@ -119,7 +124,7 @@ products_index_simple = [
     ],
     delivery: false,
     size: "M",
-    user: User.all.sample
+    user: diane
   },
   {
     sport_category: "Ski",
@@ -132,7 +137,7 @@ products_index_simple = [
     ],
     delivery: false,
     size: "L",
-    user: User.all.sample
+    user: victor
   },
   {
     sport_category: "Ski",
@@ -145,7 +150,7 @@ products_index_simple = [
     ],
     delivery: true,
     size: "S",
-    user: User.all.sample
+    user: fred
   },
   {
     sport_category: "Ski",
@@ -158,7 +163,7 @@ products_index_simple = [
     ],
     delivery: true,
     size: "38",
-    user: User.all.sample
+    user: max
   },
   {
     sport_category: "Ski",
@@ -171,7 +176,7 @@ products_index_simple = [
     ],
     delivery: true,
     size: "40",
-    user: User.all.sample
+    user: vincent
   },
   {
     sport_category: "Ski",
@@ -184,7 +189,7 @@ products_index_simple = [
     ],
     delivery: true,
     size: "38",
-    user: User.all.sample
+    user: diane
   },
   {
     sport_category: "Ski",
@@ -197,7 +202,7 @@ products_index_simple = [
     ],
     delivery: true,
     size: "L",
-    user: User.all.sample
+    user: vincent
   },
   {
     sport_category: "Ski",
@@ -210,7 +215,7 @@ products_index_simple = [
     ],
     delivery: false,
     size: "140cm",
-    user: users[8]
+    user: diane
   },
   {
     sport_category: "Ski",
@@ -223,7 +228,7 @@ products_index_simple = [
     ],
     delivery: true,
     size: "M",
-    user: User.all.sample
+    user: fred
   },
   {
     sport_category: "Ski",
@@ -236,7 +241,7 @@ products_index_simple = [
     ],
     delivery: false,
     size: "152cm",
-    user: users[8]
+    user: paul
   }
 ]
 
@@ -255,7 +260,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: fred
   },
   {
     sport_category: "Ski",
@@ -269,7 +274,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: vincent
   },
   {
     sport_category: "Ski",
@@ -283,7 +288,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: max
   },
   {
     sport_category: "Ski",
@@ -297,7 +302,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: victor
   },
   {
     sport_category: "Ski",
@@ -311,7 +316,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: matthieu
   },
   {
     sport_category: "Ski",
@@ -325,7 +330,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: fred
   },
   {
     sport_category: "Ski",
@@ -339,7 +344,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: matthieu
   },
   {
     sport_category: "Ski",
@@ -353,7 +358,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: diane
   },
   {
     sport_category: "Ski",
@@ -367,7 +372,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: victor
   },
   {
     sport_category: "Ski",
@@ -381,7 +386,7 @@ products_index_kid = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: User.all.sample
+    user: vincent
   }
 ]
 
@@ -403,7 +408,7 @@ products_index_kid_complex = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: users[3]
+    user: maxime
   },
   {
     sport_category: "Ski",
@@ -420,7 +425,7 @@ products_index_kid_complex = [
     ],
     delivery: true,
     size: "10-12 ans",
-    user: users[3]
+    user: maxime
   },
   {
     sport_category: "Ski",
@@ -436,7 +441,7 @@ products_index_kid_complex = [
     ],
     delivery: true,
     size: "130cm",
-    user: users[9]
+    user: paul
   },
   {
     sport_category: "Ski",
@@ -453,8 +458,9 @@ products_index_kid_complex = [
     ],
     delivery: true,
     size: "140cm",
-    user: users[7]
-  },{
+    user: diane
+  },
+  {
     sport_category: "Ski",
     name: "Skis",
     price: 12,
@@ -469,7 +475,20 @@ products_index_kid_complex = [
     ],
     delivery: true,
     size: "140cm",
-    user: users[1]
+    user: matthieu
+  },
+  {
+    sport_category: "Ski",
+    name: "VTT électrique",
+    price: 20,
+    description: "Fourche suspendue 100mm, freins hydrauliques, autonomie 80km, prolongez vos sorties, plaisir garanti.",
+    quality: "Excellent",
+    photos_url: [
+      "https://contents.mediadecathlon.com/p1638909/k$d30f4037a81fab1e807e725278b2718a/sq/velo-vtt-electrique-e-st-900-gris-275-plus.jpg?format=auto&f=646x646"
+    ],
+    delivery: true,
+    size: "L",
+    user: marie
   }
 
 ]
