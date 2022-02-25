@@ -64,14 +64,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Demande de réservation prise en comtpe</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Demande de réservation prise en compte</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        Dates : 23/03/2022 au 30/03/2022
+        <br>
+        À : Maxime
+        <br>
+        Maxime a reçu un email avec votre demande de réservation.
+        <br>
+        Vous retrouverez le statut de votre demande dans votre Tableau de bord.
       </div>
       <div class="modal-footer">
-        <%= link_to "Réserver", product_bookings_path(@product, params: { booking: { user_id: @product.user_id, product_id: @product.id, status: "pending"}}), class: "btn btn-primary", method: :post %>
+        <%= link_to "Réserver", product_bookings_path(@product, params: { booking: { user_id: @product.user_id, product_id: @product.id, status: "En attente"}}), class: "btn btn-primary", method: :post %>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
       </div>
     </div>
