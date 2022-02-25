@@ -51,13 +51,15 @@
          <h2>Les autres produits proposés par <%= @product.user.first_name %></p>
     </div>
     <div class="cards d-flex">
-      <% @product.user.products.each do |product|%>
-        <div class="card-product">
-          <div>
-            <p><%= product.name %></p>
-        </div>
-          <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
-        </div>
+      <% @product.user.products.each do |product| %>
+      <% if product != @product %>
+          <div class="card-product">
+            <div>
+              <p><%= product.name %></p>
+          </div>
+            <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
