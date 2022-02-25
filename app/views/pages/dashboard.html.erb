@@ -23,6 +23,7 @@
     </li>
   </ul>
 
+
   <div class="tab-info tab-active" data-tab-menu-target="infos1" id = "tab-1-infos">
     <% @my_bookings.each do |booking| %>
         <%= link_to product_path(booking.product) do  %>
@@ -52,13 +53,15 @@
       <% end %>
   </div>
 
+
   <div class="tab-info" data-tab-menu-target="infos3" id = "tab-3-infos">
     <% @my_products.each do |product| %>
           <%= link_to product_path(product) do  %>
             <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <%= cl_image_tag(product.photos.first.key, class: "card-img-top") %>
-                <%= product.name %>
+              <div class="card-body">
+                  <%= cl_image_tag(product.photos.first.key, class: "card-img-top") %>
+                  <%= product.name %>
+              </div>
             </div>
           <% end %>
       <% end %>
