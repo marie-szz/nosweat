@@ -23,34 +23,43 @@
     </li>
   </ul>
 
-
-  <div class="tab-info tab-active" data-tab-menu-target="infos1" id = "tab-1-infos">
-    <% @my_bookings.each do |booking| %>
-        <%= link_to product_path(booking.product) do  %>
-          <div class="card" style="width: 18rem;">
-            <%= cl_image_tag(booking.product.photos.first.key, class: "card-img-top") %>
-            <div class="card-body">
-              <h4 class="card-text"><%= booking.product.name %></h4>
-              <p class="card-text"><%= booking.status %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+  <div class="container">
+     <div class="tab-info tab-active" data-tab-menu-target="infos1" id = "tab-1-infos">
+      <div class="d-flex">
+        <% @my_bookings.each do |booking| %>
+            <%= link_to product_path(booking.product) do  %>
+              <div class="card" style="width: 18rem;">
+                <%= cl_image_tag(booking.product.photos.first.key, class: "card-img-top") %>
+                <div class="card-body">
+                  <h4 class="card-text"><%= booking.product.name %></h4>
+                  <p class="card-text"><%= booking.status %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="tab-info" data-tab-menu-target="infos2" id = "tab-2-infos">
-    <% @my_demands.each do |booking| %>
-        <%= link_to product_path(booking.product) do %>
-          <div class="card" style="width: 18rem;">
-            <%= cl_image_tag(booking.product.photos.first.key, class: "card-img-top") %>
-            <div class="card-body">
-              <h4 class="card-text"><%= booking.product.name %></h4>
-              <p class="card-text"><%= booking.status %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+
+  <div class="container">
+      <div class="tab-info" data-tab-menu-target="infos2" id = "tab-2-infos">
+        <div class="d-flex">
+          <% @my_demands.each do |booking| %>
+            <%= link_to product_path(booking.product) do %>
+              <div class="card" style="width: 18rem;">
+                <%= cl_image_tag(booking.product.photos.first.key, class: "card-img-top") %>
+                <div class="card-body">
+                  <h4 class="card-text"><%= booking.product.name %></h4>
+                  <p class="card-text"><%= booking.status %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+        </div>
   </div>
+
 
   <div class="container">
     <div class="tab-info" data-tab-menu-target="infos3" id = "tab-3-infos">
