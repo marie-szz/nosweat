@@ -53,15 +53,18 @@
     <div class="cards d-flex">
       <% @product.user.products.each do |product|%>
         <div class="card-product">
+          <%= link_to product_path(product), class:"card-text" do  %>
           <div>
             <p><%= product.name %></p>
         </div>
           <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
 
 
 <!-- Modal pour reserver  -->
