@@ -8,5 +8,6 @@ class PagesController < ApplicationController
     @my_products = current_user.products
     @my_bookings = current_user.bookings
     @my_demands = Booking.all.select { |booking| booking.product.user == current_user }
+
   end
 end
