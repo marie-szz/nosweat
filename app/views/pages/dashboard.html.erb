@@ -3,57 +3,67 @@
 <br>
 <br>
 <br>
-<ul class="list-inline tabs-underlined">
-  <li>
-    <p class = "tab-underlined active" id = "tab-1" > Vos demandes de location</p>
-  </li>
-  <li>
-    <p class = "tab-underlined" id = "tab-2"> Vos offres de location</p>
-  </li>
-  <li>
-    <p class = "tab-underlined" id = "tab-3"> Vos équipements</p>
-  </li>
-  <li>
-    <p class = "tab-underlined"> Historique</p>
-  </li>
-  <li>
-    <p class = "tab-underlined"> Mes informations</p>
-  </li>
-</ul>
+<h3>Mon tableau de bord</h3>
+<div data-controller="tab-menu">
+  <ul class="list-inline tabs-underlined" data-tab-menu-target="list">
+    <li data-action="click->tab-menu#change">
+      <h5 class = "tab-underlined active"  id = "tab-1"> Mes demandes de location</h5>
+    </li>
+    <li data-action="click->tab-menu#change">
+      <h5 class = "tab-underlined"  id = "tab-2"> Mes offres de location</h5>
+    </li>
+    <li data-action="click->tab-menu#change">
+      <h5 class = "tab-underlined"  id = "tab-3"> Mes équipements</h5>
+    </li>
+    <li>
+      <h5 class = "tab-underlined"> Historique</h5>
+    </li>
+    <li>
+      <h5 class = "tab-underlined"> Mes informations</h5>
+    </li>
+  </ul>
 
-<div class="tab-info tab-active" id = "tab-1-infos">
-  <h3>Mes demandes de réservation</h3>
-  <% @my_bookings.each do |booking| %>
+
+  <div class="tab-info tab-active" data-tab-menu-target="infos1" id = "tab-1-infos">
+    <% @my_bookings.each do |booking| %>
         <%= link_to product_path(booking.product) do  %>
-        <div class="card-product">
-            <%= cl_image_tag(booking.product.photos.first.key, class: "image") %>
-            <%= booking.status %>
-        </div>
-      <% end %>
-  <% end %>
-</div>
-
-<div class="tab-info" id = "tab-2-infos">
-  <h3>Mes offres </h3>
-  <% @my_products.each do |product| %>
-        <%= link_to product_path(product) do  %>
-        <% product.bookings.each do |demand| %>
-          <div class="card-product">
-            <%= cl_image_tag(demand.product.photos.first.key, class: "image") %>
-            <%= demand.status %>
+          <div class="card" style="width: 18rem;">
+            <%= cl_image_tag(booking.product.photos.first.key, class: "card-img-top") %>
+            <div class="card-body">
+              <h4><%= booking.product.name %></h4>
+              <p class="card-text"><%= booking.status %></p>
+            </div>
           </div>
         <% end %>
       <% end %>
-  <% end %>
-</div>
+  </div>
 
-<div class="tab-info" id = "tab-3-infos">
-  <h3>Mes produits</h3>
-  <% @my_products.each do |product| %>
-        <%= link_to product_path(product) do  %>
-        <div class="card-product">
-            <%= cl_image_tag(product.photos.first.key, class: "image") %>
-        </div>
+  <div class="tab-info" data-tab-menu-target="infos2" id = "tab-2-infos">
+    <% @my_products.each do |product| %>
+          <%= link_to product_path(product) do  %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <% product.bookings.each do |demand| %>
+                    <%= cl_image_tag(demand.product.photos.first.key, class: "card-img-top") %>
+                    <%= demand.status %>
+                  <% end %>
+                </div>
+            </div>
+          <% end %>
       <% end %>
-  <% end %>
+  </div>
+
+
+  <div class="tab-info" data-tab-menu-target="infos3" id = "tab-3-infos">
+    <% @my_products.each do |product| %>
+          <%= link_to product_path(product) do  %>
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                  <%= cl_image_tag(product.photos.first.key, class: "card-img-top") %>
+                  <%= product.name %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+  </div>
 </div>
