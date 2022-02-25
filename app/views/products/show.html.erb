@@ -1,3 +1,5 @@
+
+
 <%= render "shared/navbar" %>
 <div class="container container-down">
   <div class="card-product-show d-flex">
@@ -14,7 +16,7 @@
     <div class="card-product-show" style="mb-5;">
         <%= cl_image_tag(@product.photos.first.key, width: 405, height: 405, crop: :fill, class: "image") %>
     </div>
-    <div class="container">
+    <div class="right-card">
       <div class="card-product-info-schedule">
         <div class="d-flex" style="justify-content: space-between; my-5">
           <div class="card-product-info">
@@ -22,35 +24,38 @@
               <%= image_tag asset_path(@product.user.photo_url), class:"avatar" %>
             <% end %>
             <h4><%= @product.name %></h4>
-              <p>proposé par <%=@product.user.first_name %></p>
+              <p>proposé par <strong><%=@product.user.first_name %></strong></p>
             <div class="d-flex">
             </div>
             <br>
-            <h5><%= @product.description %></h5>
+            <p><%= @product.description %></p>
             <br>
-            <h6><%= @product.price %>€ par jour</h6>
-            <h6><%= @product.quality %> état</h6>
-            <div class="container">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <h6><%= @product.price %>€ /jour</h6>
+            <h6>Etat: <%= @product.quality %></h6>
+            <div class="user-choice">
+               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Réserver
               </button>
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal" data-bs-whatever="@mdo">
                 Contacter <%= @product.user.first_name %>
               </button>
             </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div>
-    <h2>Les autres produits proposés par <%= @product.user.first_name %></p>
+  <div class="container">
+    <div class="other-text">
+         <h2>Les autres produits proposés par <%= @product.user.first_name %></p>
+    </div>
     <div class="cards d-flex">
       <% @product.user.products.each do |product|%>
         <div class="card-product">
           <div>
             <p><%= product.name %></p>
-          </div>
+        </div>
           <%= cl_image_tag(product.photos.first.key, width: 150, height: 150, crop: :fill) %>
         </div>
       <% end %>
